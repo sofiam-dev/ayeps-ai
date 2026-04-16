@@ -715,6 +715,194 @@ section {
 }
 
 /* ========================================
+   Demo Section - Embedded Chat
+   ======================================== */
+.demo {
+    padding: 120px 0;
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+}
+
+.demo-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.demo-text .section-tag {
+    margin-bottom: 16px;
+}
+
+.demo-text h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.demo-text > p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+}
+
+.demo-prompts {
+    list-style: none;
+    margin-bottom: 32px;
+}
+
+.demo-prompts li {
+    padding: 12px 16px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.demo-prompts li:hover {
+    border-color: var(--color-primary);
+    color: var(--color-text);
+    transform: translateX(8px);
+}
+
+.demo-prompts li::before {
+    content: '"';
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.demo-prompts li::after {
+    content: '"';
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.demo-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-primary);
+}
+
+.demo-note svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+}
+
+.demo-note span {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.demo-chat {
+    position: relative;
+}
+
+.chat-container {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(99, 102, 241, 0.2);
+}
+
+.chat-header {
+    padding: 16px 20px;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.chat-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--color-success);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.chat-embed {
+    height: 500px;
+    position: relative;
+}
+
+/* Solution CTA */
+.solution-cta {
+    text-align: center;
+    margin-top: 48px;
+}
+
+/* ========================================
+   Floating Chat Button
+   ======================================== */
+.floating-chat {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition);
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+}
+
+.floating-chat.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.floating-chat:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 50px rgba(99, 102, 241, 0.5);
+}
+
+.floating-chat-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+    animation: float-pulse 2s infinite;
+    z-index: -1;
+}
+
+@keyframes float-pulse {
+    0%, 100% { transform: scale(1); opacity: 0; }
+    50% { transform: scale(1.15); opacity: 0.3; }
+}
+
+.floating-chat-text {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* ========================================
    CTA Section
    ======================================== */
 .cta {
@@ -808,6 +996,27 @@ section {
     .tech-content {
         grid-template-columns: 1fr;
     }
+
+    .demo-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .demo-text {
+        text-align: center;
+    }
+
+    .demo-prompts li {
+        text-align: left;
+    }
+
+    .demo-note {
+        justify-content: center;
+    }
+
+    .chat-embed {
+        height: 450px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -836,6 +1045,23 @@ section {
 
     section {
         padding: 80px 0;
+    }
+
+    .demo-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .chat-embed {
+        height: 400px;
+    }
+
+    .floating-chat-text {
+        display: none;
+    }
+
+    .floating-chat {
+        padding: 16px;
+        border-radius: 50%;
     }
 
     .footer-content {
