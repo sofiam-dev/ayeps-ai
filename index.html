@@ -359,10 +359,15 @@
 
     <!-- Botpress Webchat -->
     <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2025/03/18/14/20250318142654-0G8W71KZ.js"></script>
     <script>
-      window.botpress.on("webchat:ready", () => {
-        console.log("Webchat is ready");
+      window.botpress.init({
+        "botId": "490247bf-6be5-44ad-8661-e9bf015a6cf0",
+        "configuration": {
+          "composerPlaceholder": "Ask me about AI sales agents...",
+          "botName": "AYEPS Sales AI",
+          "botDescription": "AI-powered sales assistant",
+          "themeColor": "#6366f1"
+        }
       });
     </script>
 </body>
