@@ -95,7 +95,12 @@
                                 <span>AYEPS AI is online</span>
                             </div>
                         </div>
-                        <div class="chat-embed" id="bp-webchat"></div>
+                        <iframe
+                            src="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/04/14/10/20260414101210-D1PUFGZM.json"
+                            id="bp-webchat"
+                            class="chat-embed"
+                            style="width: 100%; height: 500px; border: none; border-radius: 12px;">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -356,31 +361,10 @@
         <span class="floating-chat-text">Chat with AI</span>
     </div>
 
-    <!-- Botpress Webchat -->
-    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
     <script>
-        window.botpress.on("webchat:ready", () => {
-            window.botpress.open();
-        });
-
-        window.botpress.init({
-            "botId": "bp_bak_GGv6EBANIuL_miZpuaD8TLsYlPkAzteQx2wP",
-            "configuration": {
-                "composerPlaceholder": "Ask me anything about AYEPS...",
-                "botName": "AYEPS AI",
-                "botDescription": "AI Sales Agent Demo",
-                "showPoweredBy": false
-            },
-            "clientId": "bp_bak_GGv6EBANIuL_miZpuaD8TLsYlPkAzteQx2wP"
-        });
-    </script>
-
-    <script>
-        // Floating chat button functionality
+        // Floating chat button - scroll to demo section
         document.getElementById('floating-chat').addEventListener('click', function() {
-            if (window.botpress) {
-                window.botpress.open();
-            }
+            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
         });
 
         // Show floating button after scroll
