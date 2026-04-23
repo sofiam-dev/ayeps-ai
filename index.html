@@ -357,13 +357,30 @@
     </div>
 
     <!-- Botpress Webchat -->
-    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2026/04/14/10/20260414101210-FWMCHV2R.js" defer></script>
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script>
+        window.botpress.on("webchat:ready", () => {
+            window.botpress.open();
+        });
+
+        window.botpress.init({
+            "botId": "bp_bak_GGv6EBANIuL_miZpuaD8TLsYlPkAzteQx2wP",
+            "configuration": {
+                "composerPlaceholder": "Ask me anything about AYEPS...",
+                "botName": "AYEPS AI",
+                "botDescription": "AI Sales Agent Demo",
+                "showPoweredBy": false
+            },
+            "clientId": "bp_bak_GGv6EBANIuL_miZpuaD8TLsYlPkAzteQx2wP"
+        });
+    </script>
 
     <script>
         // Floating chat button functionality
         document.getElementById('floating-chat').addEventListener('click', function() {
-            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+            if (window.botpress) {
+                window.botpress.open();
+            }
         });
 
         // Show floating button after scroll
